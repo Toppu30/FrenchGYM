@@ -78,6 +78,7 @@
                         <th>วันที่หมด</th>
                         <th>วันที่เหลือ</th>
                         <th>แก้ไข</th>
+                        <th>ต่ออายุสมาชิก</th>
                         <th>ลบ</th>
                     </tr>
                 </thead>
@@ -96,6 +97,9 @@
                         <td>{{ i.remain_day }}</td>
                         <td><a href="/edit/{{ i.reg_id }}" class="button-edit">Edit
                             <i class="fas fa-pen-to-square"></i>
+                        </a>
+                        <td><a href="/remain/{{ i.reg_id }}" class="button-edit">Renew
+                            <i class="fas fa-plus"></i>
                         </a>
                         </td>
                         <td><a href="/delete/{{i.reg_id}}" class="button-delete">Delete

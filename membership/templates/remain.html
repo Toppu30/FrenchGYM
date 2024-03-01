@@ -56,34 +56,15 @@
             </a>
         </div>
         <div class="box-register">
-            <h1 class="display-3">แก้ไขข้อมูลสมาชิก</h1>
+            <h1 class="display-3">ต่ออายุสมาชิก</h1>
             <form class="form-register" method="POST">
                 {% csrf_token %}
                 <div class="title-input">
-                    <label for="InputName" class="form-label">ชื่อ</label>
-                    <input type="text" class="form-control" name="name" value="{{ form.instance.name }}"  required>
-                </div>
-
-                <div class="title-input">
-                    <label for="InputTel" class="form-label">เบอร์มือถือ</label>
-                    <input type="tel" class="form-control" name="tel" placeholder="เบอร์มือถือ" value="{{ form.instance.tel }}" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-                </div>
-
-                <div class="title-input">
-                    <label for="InputDes" class="form-label">รายละเอียด</label>
-                    <input type="text" class="form-control" name="des" value="{{ form.instance.des }}" placeholder="รายละเอียด">     
-                </div>
-
-                <div class="title-input">
-                    <label for="dropdown">ช่องทางจ่าย</label>
-                    <select class="form-control" id="dropdown" name="dropdown" required>
-                        <option value="0">เลือกช่องทางจ่าย</option>
-                        <option value="Cash" {% if b.pay == "Cash" %} selected {% endif %}>Cash</option>
-                        <option value="QR scan" {% if b.pay == "QR scan" %} selected {% endif %}>QR Scan</option>
-                    </select>
+                    <label for="InputDay" class="form-label">เพิ่มจำนวนวันของสมาชิก</label>
+                    <input type="number" class="form-control" name="day" value="30" placeholder="เพิ่มจำนวนวัน">
                 </div>
                     
-                <button class="button-register" type="submit">ยืนยันการสมัคร</button>
+                <button class="button-register" type="submit">ยืนยัน</button>
 
             </form>
         </div>

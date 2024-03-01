@@ -212,6 +212,35 @@ def delete_member_check(req, id):
     obj.delete()
     return redirect(check)
 
+def remain(req, id):
+    obj = Register.objects.get(pk=id)
+
+    if req.method == 'POST':
+        # สร้างฟอร์มโดยใช้ข้อมูลที่ถูกแก้ไข
+        form = Member(req.POST, instance=obj)
+        if form.is_valid():
+            form.save()
+            return redirect(home)
+
+        day = int(req.POST.get('day'))
+        remain = day + obj.remain_day
+        end_date = timedelta(days=day) + obj.end_date
+
+        Register.objects.filter(pk=id).update(
+            remain_day=remain,
+            end_date=end_date
+        )
+
+        return redirect(home)
+    else:
+        # สร้างฟอร์มโดยใช้ข้อมูลปัจจุบัน
+        form = Member(instance=obj)
+
+    context = {
+        'b' : form.instance,
+        'form': form,
+    }
+    return render(req, 'remain.html', {'b': Register, 'form':form})
 
 """ 
 def check_attendance(req):
