@@ -38,6 +38,11 @@ def create_member(req, form):
         if form.is_valid():
             form.save()
 
+def your_view(request):
+    today_date = datetime.date.today()
+    filtered_data = Register.objects.filter(date_field=today_date)
+    return render(request, 'your_template.html', {'filtered_data': filtered_data, 'today_date': today_date})
+
 def user(req):
     form = UserForm()
     if req.method == 'POST':
@@ -199,6 +204,11 @@ def delete(req, id):
 
 def delete_user(req, id):
     obj = Users.objects.get(pk=id)
+    obj.delete()
+    return redirect(check)
+
+def delete_member_check(req, id):
+    obj = Member_checkin.objects.get(pk=id)
     obj.delete()
     return redirect(check)
 

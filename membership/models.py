@@ -27,6 +27,7 @@ class Users(models.Model):
         return f'{self.user_id} {self.name} {self.des} {self.pay} {self.current_time} {self.date}'
 
 class Member_checkin(models.Model):
+    mem_check_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     tel = models.CharField(max_length=15)
     des = models.TextField()
@@ -34,4 +35,4 @@ class Member_checkin(models.Model):
     date = models.DateField()
     
     def __str__(self) -> str:
-        return f'{self.name} {self.tel} {self.des} {self.pay} {self.reg_current_time} {self.date}'
+        return f'{self.mem_check_id} {self.name} {self.tel} {self.des} {self.pay} {self.reg_current_time} {self.date}'
