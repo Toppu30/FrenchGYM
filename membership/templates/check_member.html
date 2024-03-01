@@ -92,7 +92,8 @@
                         <td>{{ i.start_date }}</td>
                         <td>{{ i.end_date }}</td>
                         <td>{{ i.remain_day }}</td>
-                        <td><a href="{% url 'check_in' i.reg_id %}" class="button-edit">Check</a></td> 
+                        <td><a href="{% url 'check_in' i.reg_id %}" class="button-edit">Check
+                            <i class="fa-regular fa-square-check"></i></a></td> 
                     </tr>
                     {% endfor %}
                 </tbody>
