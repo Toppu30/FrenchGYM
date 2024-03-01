@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="{% static 'images/logo.png'%}" type="image/png">
+</head>
+<body>
+    {% csrf_token %}
+    <!-- Nav Start -->
+    <nav>
+        <div class="logo">
+            <a href="">
+                <img src="{% static 'images/logo.png'%}" alt="">
+            </a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Check-in</a></li>
+            <li><a href="#">Member</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Logout
+                <i class="fas fa-right-from-bracket"></i>
+            </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Nav End -->
+
+    <!-- Container  Start -->
+    <div class="container">
+        <div class="sidebar">
+            <form action="/search_results_member/" method="GET">
+                <div class="box-search">
+                    <label class="title-search" for="search">ค้นหาสมาชิกเพื่อเช็ค</label>
+                    <input type="text" class="member-search" name="q" placeholder="Search Member..." required>
+                    <button type="submit" class="button-search">ค้นหา
+                        <i class="fas fa-magnifying-glass" style="margin-left: 5px;"></i>
+                    </button>
+                </div>
+                
+            </form>
+            
+            <a href="/" class="sidebar-menus">
+                รายชื่อสมาชิก
+            </a>
+            <a href="/form/" class="sidebar-menus">
+                สมัครสมาชิก
+            </a>
+            <a href="/check/" class="sidebar-menus">
+                เช็คประจำวัน
+            </a>
+        </div>
+        <div class="main-content">
+            <div class="title-head">
+                <h1 class="text-head">เช็คลูกค้าสมาชิก</h1>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>ชื่อสมาชิก</th>
+                        <th>เบอร์โทร</th>
+                        <th>รายละเอียด</th>
+                        <th>ช่องทางจ่าย</th>
+                        <th>เวลาสมัคร</th>
+                        <th>วันที่สมัคร</th>
+                        <th>วันที่หมด</th>
+                        <th>วันที่เหลือ</th>
+                        <th>เช็คชื่อ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in Register %}
+                    <tr>
+                        
+                        <td>{{ i.reg_id }}</td>
+                        <td>{{ i.name }}</td>
+                        <td>{{ i.tel }}</td>
+                        <td>{{ i.des }}</td>
+                        <td>{{ i.pay }}</td>
+                        <td>{{ i.current_time }} น.</td>
+                        <td>{{ i.start_date }}</td>
+                        <td>{{ i.end_date }}</td>
+                        <td>{{ i.remain_day }}</td>
+                        <td><a href="{% url 'check_in' i.reg_id %}" class="button-edit">Check</a></td> 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <br>
+    <footer>
+        <p>© 2024 French GYM</p>
+    </footer>
+
+    
+    <!-- Container  End -->
+
+    <!-- Table Start -->
+    
+    <!-- Table End -->
+</body>
+</html>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".check-in").forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    let regId = this.getAttribute("data-id");
+                    fetch(`/check_in/${regId}/`)
+                        .then(response => response.json())
+                        .then(data => {
+                            // ทำอะไรกับข้อมูลที่ได้รับ เช่น แสดงในหน้าใหม่
+                            console.log(data);
+                        })
+                        .catch(error => console.error(error));
+                });
+            });
+        });
+    </script>
+</body>
+</html>
