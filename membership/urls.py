@@ -5,6 +5,7 @@ urlpatterns = [
     path('', home),
     path('form/', calculate_date),
     path('delete/<int:id>', delete),
+    path('delete_user/<int:id>', delete_user),
     path('edit/<int:id>', edit),
     path('search/', search),
     path('search_results/', search_results),
@@ -13,4 +14,5 @@ urlpatterns = [
     path('check/', check),
     path('check_member/', check_member),
     path('check_in/<int:reg_id>/', check_in , name='check_in'),
+
 ]

@@ -196,6 +196,11 @@ def delete(req, id):
     obj.delete()
     return redirect(home)
 
+def delete_user(req, id):
+    obj = Users.objects.get(pk=id)
+    obj.delete()
+    return redirect(check)
+
 
 """ 
 def check_attendance(req):
