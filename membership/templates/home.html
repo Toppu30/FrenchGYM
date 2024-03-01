@@ -20,14 +20,14 @@
         </div>
 
         <ul class="menu">
-            <li><a href="#">Home</a></li>
+            <!-- <li><a href="#">Home</a></li>
             <li><a href="#">Check-in</a></li>
             <li><a href="#">Member</a></li>
             <li><a href="#">Register</a></li>
             <li><a href="#">Logout
                 <i class="fas fa-right-from-bracket"></i>
             </a>
-            </li>
+            </li> -->
         </ul>
     </nav>
     <!-- Nav End -->
@@ -47,18 +47,23 @@
             </form>
             
             <a href="/" class="sidebar-menus">
+                <i class="fa-regular fa-user"></i>
                 รายชื่อสมาชิก
             </a>
             <a href="/form/" class="sidebar-menus">
+                <i class="fa-regular fa-registered"></i>
                 สมัครสมาชิก
             </a>
             <a href="/check/" class="sidebar-menus">
+                <i class="fas fa-list-check"></i>
                 เช็คประจำวัน
             </a>
         </div>
         <div class="main-content">
             <div class="title-head">
-                <h1 class="text-head">รายชื่อสมาชิก</h1>
+                <h1 class="text-head">
+                    <i class="fa-regular fa-user"></i>
+                    รายชื่อสมาชิก</h1>
             </div>
             <table class="table">
                 <thead>
@@ -89,9 +94,13 @@
                         <td>{{ i.start_date }}</td>
                         <td>{{ i.end_date }}</td>
                         <td>{{ i.remain_day }}</td>
-                        <td><a href="/edit/{{ i.reg_id }}" class="button-edit">Edit</a>
+                        <td><a href="/edit/{{ i.reg_id }}" class="button-edit">Edit
+                            <i class="fas fa-pen-to-square"></i>
+                        </a>
                         </td>
-                        <td><a href="/delete/{{i.reg_id}}" class="button-delete">Delete</a>
+                        <td><a href="/delete/{{i.reg_id}}" class="button-delete">Delete
+                            <i class="fas fa-trash"></i>
+                        </a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -101,9 +110,7 @@
     </div>
 
     <br>
-    <footer>
-        <p>© 2024 French GYM</p>
-    </footer>
+    
 
     
     <!-- Container  End -->
@@ -112,4 +119,7 @@
     
     <!-- Table End -->
 </body>
+<footer>
+    <p>© 2024 French GYM</p>
+</footer>
 </html>

@@ -98,15 +98,26 @@ nav {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.sidebar-menus i {
+    margin-left: 0.70vw;
+    margin-right: 0.5vw;
+}
+.main-content {
+    margin-left: 2.5vw;
+}
+
 .table {
     border-collapse: collapse;
-    margin: 1.5vw 0 0 1.5vw;
     font-size: 0.9em;
     min-width: 400px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    width: 100%;
+    
+}
+
+.table td i {
+    margin-left: 0.25vw;
 }
 
 .table thead tr {
@@ -116,8 +127,7 @@ nav {
     font-weight: bold;
 }
 
-.table th,
-.table td {
+.table th, .table td {
     padding: 12px 15px;
 }
 
@@ -196,9 +206,13 @@ nav {
     flex-direction: column;
 }
 
-.title-head {
-    margin: 1.5vw 0 0 2vw;
-    margin-bottom: 20px;
+.title-head h1 {
+    font-size: 2vw;
+    margin: 2vw 0 2.5vw 0.5vw;
+}
+
+.title-head h1 i {
+    margin-right: 0.5vw;
 }
 
 .select {
@@ -278,7 +292,8 @@ z-index: 1;
     margin-bottom: 15px;
 }
 h3 {
-    margin: 20px 0 0 20px;
+    margin: 0 0 0.75vw 0.25vw;
+    font-size: 1.5vw;
 }
 
 .active {
@@ -286,6 +301,9 @@ h3 {
     color: white;
 }
 
+.container-table {
+    margin-bottom: 2vw;
+}
 /* footer error start
 .container-footer {
     padding-bottom: 2.5rem;
