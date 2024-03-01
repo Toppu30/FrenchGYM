@@ -44,7 +44,7 @@ def user(req):
         form = UserForm(req.POST)
         if form.is_valid():
             form.save()
-            return redirect(check)
+            return redirect('check_in.html')
         
         name = req.POST.get('name')
         des = req.POST.get('des')
@@ -60,6 +60,7 @@ def user(req):
                 current_time=current_time,
                 date=today
             )
+        return redirect(check)
 
     return render(req, 'user_form.html', {"form":form})
 
