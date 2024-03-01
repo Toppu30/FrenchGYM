@@ -98,9 +98,13 @@
                             <td>{{ item.start_date }}</td>
                             <td>{{ item.end_date }}</td>
                             <td>{{ item.remain_day }}</td>
-                            <td><a href="/edit/{{ i.reg_id }}" class="button-edit">Edit</a>
+                            <td><a href="/edit/{{ i.reg_id }}" class="button-edit">Edit
+                                <i class="fas fa-pen-to-square"></i>
+                            </a>
                             </td>
-                            <td><a href="/delete/{{i.reg_id}}" class="button-delete">Delete</a>
+                            <td><a href="/delete/{{i.reg_id}}" class="button-delete">Delete
+                                <i class="fas fa-trash"></i>
+                            </a>
                             </td>
                         </tr>
                     {% endfor %}
