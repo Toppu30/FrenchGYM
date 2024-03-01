@@ -108,7 +108,7 @@
                     <tbody>
                         {% for i in Users %}
                         <tr>
-                            <td>{{ i.user_id }}</td>
+                            <td>{{ forloop.counter }}</td>
                             <td>{{ i.name }}</td>
                             <td>{{ i.des }}</td>
                             <td>{{ i.pay }}</td>
