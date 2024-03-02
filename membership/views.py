@@ -254,6 +254,30 @@ def remain(req, id):
     }
     return render(req, 'remain.html', {'b': Register, 'form':form})
 
+def extend(req):
+    objs = Register.objects.exclude(remain_day=0)
+    if req.method == 'POST':
+        day = int(req.POST.get('day'))
+        for obj in objs:
+            remain = day + obj.remain_day
+            end_date = timedelta(days=day) + obj.end_date
+            obj.remain_day = remain
+            obj.end_date = end_date
+            obj.save()
+
+        return redirect(home)
+    
+    return render(req, 'extend.html')
+            
+
+
+
+        
+            
+        
+
+
+
 """ 
 def check_attendance(req):
     if req.method == 'POST':

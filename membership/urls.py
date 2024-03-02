@@ -16,4 +16,6 @@ urlpatterns = [
     path('check_member/', check_member),
     path('check_in/<int:reg_id>/', check_in , name='check_in'),
     path('remain/<int:id>', remain),
+    path('extend/', extend),
+
 ]
