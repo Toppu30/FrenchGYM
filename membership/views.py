@@ -98,7 +98,7 @@ def calculate_date(req):
             amount = int(req.POST.get('amount'))
 
             # คำนวณวันที่หมดอายุ 
-            end_date = start_date + timedelta(days=30 * amount)
+            end_date = start_date + timedelta(days=amount)
 
             today = timezone.now().date()
 
@@ -223,15 +223,27 @@ def remain(req, id):
             return redirect(home)
 
         day = int(req.POST.get('day'))
-        remain = day + obj.remain_day
-        end_date = timedelta(days=day) + obj.end_date
+        if obj.remain_day != 0:
+            remain = day + obj.remain_day
+            end_date = timedelta(days=day) + obj.end_date
 
-        Register.objects.filter(pk=id).update(
-            remain_day=remain,
-            end_date=end_date
-        )
+            Register.objects.filter(pk=id).update(
+                remain_day=remain,
+                end_date=end_date
+            )
+    
+        else:
+            today = timezone.now().date()
+            remain = day 
+            end_date = timedelta(days=day) + today
+
+            Register.objects.filter(pk=id).update(
+                remain_day=remain,
+                end_date=end_date
+            )
 
         return redirect(home)
+    
     else:
         # สร้างฟอร์มโดยใช้ข้อมูลปัจจุบัน
         form = Member(instance=obj)
