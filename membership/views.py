@@ -162,28 +162,16 @@ def edit(request, id):
         name = request.POST.get('name')  
         tel = request.POST.get('tel')  
         des = request.POST.get('des')
-        
-        start_date_str = request.POST.get('start_date')
-        if start_date_str:
-            start_date = datetime.strptime(start_date_str, '%Y-%m-%d').date()
-            current_time = datetime.now().time().strftime('%H:%M:%S')
-            amount = int(request.POST.get('amount'))
-            end_date = start_date + timedelta(days=30 * amount)
-            today = timezone.now().date()
-            remaining = (end_date - today).days if today <= end_date else 0
-            
-            # อัปเดตข้อมูลในฐานข้อมูล
-            Register.objects.filter(pk=id).update(
-                start_date=start_date,
-                current_time=current_time,
-                pay=request.POST.get('dropdown'),
-                end_date=end_date,
-                remain_day=remaining,
-                name=name, 
-                tel=tel,
-                des=des
-            )
-            return redirect(home)
+        dropdown = request.POST.get('dropdown')
+                    
+        # อัปเดตข้อมูลในฐานข้อมูล
+        Register.objects.filter(pk=id).update(
+            pay=dropdown,
+            name=name, 
+            tel=tel,
+            des=des
+        )
+        return redirect(home)
 
     else:
         # สร้างฟอร์มโดยใช้ข้อมูลปัจจุบัน
