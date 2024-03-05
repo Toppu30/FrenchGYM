@@ -304,17 +304,12 @@ h3 {
 .container-table {
     margin-bottom: 2vw;
 }
-/* footer error start
-.container-footer {
-    padding-bottom: 2.5rem;
+
+/* CSS สำหรับซ่อนและแสดงปุ่ม */
+.hidden {
+    display: none;
 }
 
-footer {
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-} 
-footer error end*/
-
+.visible {
+display: block; /* หรืออาจจะเป็น 'inline-block' หรืออื่นๆ ขึ้นอยู่กับ UI ของคุณ */
+}
