@@ -113,7 +113,7 @@ nav {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    
+    margin-top: 1.25vw;
 }
 
 .table td i {
@@ -208,7 +208,7 @@ nav {
 
 .title-head h1 {
     font-size: 2vw;
-    margin: 2vw 0 2.5vw 0.5vw;
+    margin: 2vw 0 1.5vw 0.5vw;
 }
 
 .title-head h1 i {
@@ -313,3 +313,72 @@ h3 {
 .visible {
 display: block; /* หรืออาจจะเป็น 'inline-block' หรืออื่นๆ ขึ้นอยู่กับ UI ของคุณ */
 }
+
+.title-head label {
+    cursor: pointer;
+    transition: 0.3;
+}
+.title-head label span:hover {
+    box-shadow: 0 2px 10px #9c1032;
+}
+.title-head label input[type="checkbox"]
+{
+    display: none;
+}
+.title-head label span {
+    position: relative;
+    display: inline-block;
+    background: #f2f2f2;
+    padding: 0.5vw 1vw;
+    color: #555;
+    text-shadow: 0 1px 4px rgba(88, 78, 78, 0.5);
+    border-radius: 25px;
+    border: 1px solid #e5e5e5;
+    font-size: 1vw;
+    transition: 0.5s;
+    user-select: none;
+    overflow: hidden;
+}
+
+.title-head label input[type="checkbox"]:checked ~ span
+{
+    background: linear-gradient(125deg,#e61b36, #9c1032);
+    color: #ffffff;
+    /* box-shadow: 0 2px 10px #9c1032; */
+
+}
+/* input[type="checkbox"] {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+    transition: .5s;
+}
+
+input:checked[type="checkbox"]
+{
+    background: #03a9f4;
+}
+
+input[type="checkbox"]:before
+{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 20px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transition: .5;
+}
+
+input:checked[type="checkbox"]:before
+{
+    left: 40px; */

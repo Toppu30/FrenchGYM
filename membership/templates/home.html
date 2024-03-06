@@ -15,7 +15,7 @@
     <!-- Nav Start -->
     <nav>
         <div class="logo">
-            <a href="">
+            <a href="/">
                 <img src="{% static 'images/logo.png'%}" alt="">
             </a>
         </div>
@@ -35,6 +35,7 @@
 
     <!-- Container  Start -->
     <div class="container">
+        <!-- Siddebar start -->
         <div class="sidebar">
             <form action="/search_results/" method="GET">
                 <div class="box-search">
@@ -59,15 +60,30 @@
                 <i class="fas fa-list-check"></i>
                 เช็คประจำวัน
             </a>
+            <a href="/extend/" class="sidebar-menus">
+                <i class="fas fa-plus"></i>
+                ต่ออายุสมาชิกทั้งหมด
+            </a>
         </div>
+        <!-- Siddebar End -->
+        <!-- Maincontent start -->
         <div class="main-content">
+            <!-- box head start -->
             <div class="title-head">
                 
                 <h1 class="text-head">
                     <i class="fa-regular fa-user"></i>
-                    รายชื่อสมาชิก</h1>
-                
+                    รายชื่อสมาชิก
+                </h1>
+                    
+                <label for="toggleColumns">
+                    <input type="checkbox" id="toggleColumns" checked>
+                    <span>แก้ไข
+                        <i class="fas fa-user-pen"></i>
+                    </span>
+                </label>
             </div>
+            <!-- box head end -->
             <table id="membersTable" class="table" >
                 <thead>
                     <tr>
@@ -111,17 +127,11 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <a href="/extend/" class="button-edit">Extend members expiration date
-            <i class="fas fa-plus"></i>
-            </a>
         </div>
+        <!-- Maincontent end -->
     </div>
-
+    <!-- Container end -->
     <br>
-    
-    <!-- สมมุติว่านี่คือ HTML ของคุณ และคุณเพิ่มปุ่มใหม่ไว้ที่นี่ -->
-    <label for="toggleColumns">ซ่อน</label>
-    <input type="checkbox" id="toggleColumns" checked>
 
 
 </body>

@@ -12,7 +12,7 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="">
+            <a href="/">
                 <img src="{% static 'images/logo.png'%}" alt="">
             </a>
         </div>
@@ -60,7 +60,7 @@
             <form class="form-register" method="POST">
                 {% csrf_token %}
                 <div class="title-input">
-                    <label for="InputDay" class="form-label">เพิ่มจำนวนวันของสมาชิก</label>
+                    <label for="InputDay" class="form-label">จำนวนที่ต้องการเพิ่ม (วัน)</label>
                     <input type="number" class="form-control" name="day" value="30" placeholder="เพิ่มจำนวนวัน">
                 </div>
                     
